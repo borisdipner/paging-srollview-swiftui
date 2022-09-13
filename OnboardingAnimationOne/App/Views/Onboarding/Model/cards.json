@@ -1,0 +1,22 @@
+[
+    {
+        "id" : "ab8932ca-29bf-11ed-a261-0242ac120002",
+        "title": "Read\nbooks,\neasy.",
+        "subTitle": "No matter where you go,\nyour books always with you.",
+        "image": "card_image_01"
+    },
+    {
+        "id" : "ab8932ca-29bf-11ed-a261-0242ac120001",
+        "title": "Share\nwith\nfriends.",
+        "subTitle": "Your reading lib migth be shared with community and friends.",
+        "image": "card_image_02"
+    },
+    { 
+        "id" : "ab8932ca-29bf-11ed-a261-0242ac120004",
+        "title": "Track\nyour\nprogress.",
+        "subTitle": "Get insights into your reading preferencies and anlytics of time spent",
+        "image": "card_image_03"
+    }
+]
+
+ 
