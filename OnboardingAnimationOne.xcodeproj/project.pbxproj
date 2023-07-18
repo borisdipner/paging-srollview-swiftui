@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448834AF2A67223F00B87509 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834AE2A67223F00B87509 /* UnitsView.swift */; };
 		A1390E6E28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1390E6D28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift */; };
 		A1390E7028C073FE007F5BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1390E6F28C073FE007F5BA1 /* ContentView.swift */; };
 		A1390E7228C073FF007F5BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1390E7128C073FF007F5BA1 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		448834AE2A67223F00B87509 /* UnitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		A1390E6A28C073FE007F5BA1 /* OnboardingAnimationOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingAnimationOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1390E6D28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAnimationOneApp.swift; sourceTree = "<group>"; };
 		A1390E6F28C073FE007F5BA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		448834AD2A67222C00B87509 /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				448834AE2A67223F00B87509 /* UnitsView.swift */,
+			);
+			path = Units;
+			sourceTree = "<group>";
+		};
 		A1390E6128C073FE007F5BA1 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		A1D4CE2D28C86D2A00D75AE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				448834AD2A67222C00B87509 /* Units */,
 				A1D4CE2E28C86D4800D75AE1 /* Onboarding */,
 			);
 			path = Views;
@@ -327,6 +338,7 @@
 				A1D4CE2C28C86B5A00D75AE1 /* OnboardingContinueButton.swift in Sources */,
 				A1390E6E28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift in Sources */,
 				A1D4CE2028C6501E00D75AE1 /* OnboardingCardsData.swift in Sources */,
+				448834AF2A67223F00B87509 /* UnitsView.swift in Sources */,
 				A1D4CE3328C89DD700D75AE1 /* OnboardingCard.swift in Sources */,
 				A1D4CE2A28C86B4100D75AE1 /* Color+Ext.swift in Sources */,
 				A1D4CE3528C89E0C00D75AE1 /* OnboardingView.swift in Sources */,
@@ -485,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OnboardingAnimationOne/Preview Content\"";
-				DEVELOPMENT_TEAM = S4RZY48S82;
+				DEVELOPMENT_TEAM = 3X5USZAJXM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -8,9 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var isShowingUnitsSheet = false
+    @State private var isShowingOnboardingSheet = false
+
+
     var body: some View {
-        OnboardingView()
+        VStack(alignment: .leading) {
+            Text("Paging Previews")
+                .font(.system(size: 36, weight: .semibold))
+                .padding(16)
+            List {
+                Button("Vertical", action: { isShowingUnitsSheet.toggle() })
+                    .sheet(isPresented: $isShowingUnitsSheet) {
+                        UnitsView()
+                    }
+                Button("Horizontal", action: { isShowingOnboardingSheet.toggle() })
+                    .sheet(isPresented: $isShowingOnboardingSheet) {
+                        OnboardingView()
+                    }
+            }
+            .foregroundColor(.black)
+        }
     }
 }
 
