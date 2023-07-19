@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4455A46B2A673A9C00849DB8 /* UnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A46A2A673A9C00849DB8 /* UnitView.swift */; };
+		4455A46F2A673AF700849DB8 /* UnitRowsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A46E2A673AF700849DB8 /* UnitRowsData.swift */; };
+		4455A4712A673B0000849DB8 /* UnitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4702A673B0000849DB8 /* UnitRow.swift */; };
+		4455A4742A673B9000849DB8 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4732A673B9000849DB8 /* Orientation.swift */; };
+		4455A4762A6861AD00849DB8 /* FrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4752A6861AD00849DB8 /* FrameModifier.swift */; };
+		4455A4782A6861CF00849DB8 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455A4772A6861CF00849DB8 /* View+Ext.swift */; };
 		448834AF2A67223F00B87509 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448834AE2A67223F00B87509 /* UnitsView.swift */; };
 		A1390E6E28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1390E6D28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift */; };
 		A1390E7028C073FE007F5BA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1390E6F28C073FE007F5BA1 /* ContentView.swift */; };
@@ -42,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4455A46A2A673A9C00849DB8 /* UnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitView.swift; sourceTree = "<group>"; };
+		4455A46E2A673AF700849DB8 /* UnitRowsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitRowsData.swift; sourceTree = "<group>"; };
+		4455A4702A673B0000849DB8 /* UnitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitRow.swift; sourceTree = "<group>"; };
+		4455A4732A673B9000849DB8 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
+		4455A4752A6861AD00849DB8 /* FrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameModifier.swift; sourceTree = "<group>"; };
+		4455A4772A6861CF00849DB8 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		448834AE2A67223F00B87509 /* UnitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		A1390E6A28C073FE007F5BA1 /* OnboardingAnimationOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingAnimationOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1390E6D28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAnimationOneApp.swift; sourceTree = "<group>"; };
@@ -87,9 +99,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4455A46C2A673AC800849DB8 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4455A46A2A673A9C00849DB8 /* UnitView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		4455A46D2A673AD800849DB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4455A46E2A673AF700849DB8 /* UnitRowsData.swift */,
+				4455A4702A673B0000849DB8 /* UnitRow.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4455A4722A673B8000849DB8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A1D4CE2528C7384800D75AE1 /* AdaptivePagingScrollView.swift */,
+				4455A4732A673B9000849DB8 /* Orientation.swift */,
+				4455A4752A6861AD00849DB8 /* FrameModifier.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		448834AD2A67222C00B87509 /* Units */ = {
 			isa = PBXGroup;
 			children = (
+				4455A46D2A673AD800849DB8 /* Model */,
+				4455A46C2A673AC800849DB8 /* Elements */,
 				448834AE2A67223F00B87509 /* UnitsView.swift */,
 			);
 			path = Units;
@@ -144,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A1D4CE2928C86B4100D75AE1 /* Color+Ext.swift */,
+				4455A4772A6861CF00849DB8 /* View+Ext.swift */,
 				A1390E9728C07818007F5BA1 /* Bundle+Ext.swift */,
 			);
 			path = Extensions;
@@ -162,6 +204,7 @@
 		A1D4CE2D28C86D2A00D75AE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4455A4722A673B8000849DB8 /* Common */,
 				448834AD2A67222C00B87509 /* Units */,
 				A1D4CE2E28C86D4800D75AE1 /* Onboarding */,
 			);
@@ -181,7 +224,6 @@
 		A1D4CE2F28C86D6500D75AE1 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				A1D4CE2528C7384800D75AE1 /* AdaptivePagingScrollView.swift */,
 				A1D4CE2728C8555500D75AE1 /* PageControl.swift */,
 				A1D4CE2328C712E600D75AE1 /* OnbardingCardView.swift */,
 				A1D4CE2B28C86B5A00D75AE1 /* OnboardingContinueButton.swift */,
@@ -332,14 +374,20 @@
 			files = (
 				A1390E9828C07818007F5BA1 /* Bundle+Ext.swift in Sources */,
 				A1D4CE2428C712E600D75AE1 /* OnbardingCardView.swift in Sources */,
+				4455A4782A6861CF00849DB8 /* View+Ext.swift in Sources */,
+				4455A46F2A673AF700849DB8 /* UnitRowsData.swift in Sources */,
 				A1D4CE2828C8555500D75AE1 /* PageControl.swift in Sources */,
 				A1390E7028C073FE007F5BA1 /* ContentView.swift in Sources */,
 				A1D4CE2628C7384800D75AE1 /* AdaptivePagingScrollView.swift in Sources */,
 				A1D4CE2C28C86B5A00D75AE1 /* OnboardingContinueButton.swift in Sources */,
 				A1390E6E28C073FE007F5BA1 /* OnboardingAnimationOneApp.swift in Sources */,
+				4455A4742A673B9000849DB8 /* Orientation.swift in Sources */,
+				4455A4712A673B0000849DB8 /* UnitRow.swift in Sources */,
 				A1D4CE2028C6501E00D75AE1 /* OnboardingCardsData.swift in Sources */,
 				448834AF2A67223F00B87509 /* UnitsView.swift in Sources */,
+				4455A4762A6861AD00849DB8 /* FrameModifier.swift in Sources */,
 				A1D4CE3328C89DD700D75AE1 /* OnboardingCard.swift in Sources */,
+				4455A46B2A673A9C00849DB8 /* UnitView.swift in Sources */,
 				A1D4CE2A28C86B4100D75AE1 /* Color+Ext.swift in Sources */,
 				A1D4CE3528C89E0C00D75AE1 /* OnboardingView.swift in Sources */,
 			);

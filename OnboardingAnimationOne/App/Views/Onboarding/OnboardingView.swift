@@ -31,9 +31,10 @@ struct OnboardingView: View {
                 GeometryReader { geometry in
                     AdaptivePagingScrollView(currentPageIndex: self.$activePageIndex,
                                              itemsAmount: self.onboardData.cards.count - 1,
-                                             itemWidth: self.itemWidth,
+                                             itemScrollableSide: self.itemWidth,
                                              itemPadding: self.itemPadding,
-                                             pageWidth: geometry.size.width) {
+                                             visibleContentLength: geometry.size.width,
+                                             orientation: .horizontal) {
                         ForEach(onboardData.cards) { card in
                             GeometryReader { screen in
                                 OnbardingCardView(card: card)
