@@ -17,11 +17,11 @@ struct AdaptivePagingScrollView: View {
     private let itemSpacing: CGFloat
     private let itemScrollableSide: CGFloat
     private let itemsAmount: Int
-    private let contentLength: CGFloat
-    
-    private let spaceOffset: CGFloat
-    private let scrollDampingFactor: CGFloat = 0.66
+    private let allContentLength: CGFloat
     private let visibleContentLength: CGFloat
+
+    private let initialOffset: CGFloat
+    private let scrollDampingFactor: CGFloat = 0.66
     private let orientation: Orientation
 
     @Binding var currentPageIndex: Int
@@ -32,7 +32,7 @@ struct AdaptivePagingScrollView: View {
     private func countOffset(for pageIndex: Int) -> CGFloat {
         
         let activePageOffset = CGFloat(pageIndex) * (itemScrollableSide + itemPadding)
-        return spaceOffset - activePageOffset
+        return initialOffset - activePageOffset
     }
     
     private func countPageIndex(for offset: CGFloat) -> Int {
@@ -55,7 +55,7 @@ struct AdaptivePagingScrollView: View {
     }
     
     private func countLogicalOffset(_ trueOffset: CGFloat) -> CGFloat {
-        return (trueOffset-spaceOffset) * -1.0
+        return (trueOffset-initialOffset) * -1.0
     }
     
     init<A: View>(currentPageIndex: Binding<Int>,
@@ -77,10 +77,10 @@ struct AdaptivePagingScrollView: View {
         self.itemPadding = itemPadding
         self.visibleContentLength = visibleContentLength
         self.orientation = orientation
-        self.contentLength = (itemScrollableSide+itemPadding)*CGFloat(itemsAmount)
+        self.allContentLength = (itemScrollableSide+itemPadding)*CGFloat(itemsAmount)
         
         let itemRemain = (visibleContentLength-itemScrollableSide-2*itemPadding)/2
-        self.spaceOffset = itemRemain + itemPadding
+        self.initialOffset = itemRemain + itemPadding
     }
 
     @ViewBuilder
@@ -109,7 +109,7 @@ struct AdaptivePagingScrollView: View {
             currentScrollOffset = countOffset(for: currentPageIndex)
         }
         .background(Color.black.opacity(0.00001)) // hack - this allows gesture recognizing even when background is transparent
-        .frameModifier(contentLength, visibleContentLength, currentScrollOffset, orientation)
+        .frameModifier(allContentLength, visibleContentLength, currentScrollOffset, orientation)
         .clipped()
         .simultaneousGesture(
             DragGesture(minimumDistance: 1, coordinateSpace: .local)

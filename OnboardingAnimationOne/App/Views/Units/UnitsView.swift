@@ -10,7 +10,7 @@ import SwiftUI
 enum Constants {
     static let itemSide: CGFloat = 100
     static let itemPadding: CGFloat = 20
-    static let visibleContentLength: CGFloat = 600
+    static let visibleContentLength: CGFloat = 400
 }
 
 struct UnitsView: View {
