@@ -20,7 +20,7 @@ struct ContentView: View {
             List {
                 Button("Vertical", action: { isShowingUnitsSheet.toggle() })
                     .sheet(isPresented: $isShowingUnitsSheet) {
-                        UnitsView()
+                        UnitsView(value: .constant("1"))
                     }
                 Button("Horizontal", action: { isShowingOnboardingSheet.toggle() })
                     .sheet(isPresented: $isShowingOnboardingSheet) {

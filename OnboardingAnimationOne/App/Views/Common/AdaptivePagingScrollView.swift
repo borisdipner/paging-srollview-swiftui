@@ -57,7 +57,13 @@ struct AdaptivePagingScrollView: View {
     private func countLogicalOffset(_ trueOffset: CGFloat) -> CGFloat {
         return (trueOffset-initialOffset) * -1.0
     }
-    
+
+    private func changeFocus() {
+        withAnimation {
+            currentScrollOffset = countOffset(for: currentPageIndex)
+        }
+    }
+
     init<A: View>(currentPageIndex: Binding<Int>,
                   itemsAmount: Int,
                   itemScrollableSide: CGFloat,
@@ -110,7 +116,6 @@ struct AdaptivePagingScrollView: View {
         }
         .background(Color.black.opacity(0.00001)) // hack - this allows gesture recognizing even when background is transparent
         .frameModifier(allContentLength, visibleContentLength, currentScrollOffset, orientation)
-        .clipped()
         .simultaneousGesture(
             DragGesture(minimumDistance: 1, coordinateSpace: .local)
                 .onChanged { value in
@@ -152,5 +157,8 @@ struct AdaptivePagingScrollView: View {
                     }
                 }
         )
+        .clipped()
+        .contentShape(Rectangle())
+        .onChange(of: currentPageIndex, perform: { _ in changeFocus() })
     }
 }
