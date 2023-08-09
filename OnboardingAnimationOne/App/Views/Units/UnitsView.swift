@@ -42,6 +42,7 @@ struct UnitsView: View {
 
                     }
                 }
+                                         .clipped()
                                          .background(Color.black.opacity(0.2))
             }
             Spacer()

@@ -157,7 +157,6 @@ struct AdaptivePagingScrollView: View {
                     }
                 }
         )
-        .clipped()
         .contentShape(Rectangle())
         .onChange(of: currentPageIndex, perform: { _ in changeFocus() })
     }
