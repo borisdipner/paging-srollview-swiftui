@@ -13,7 +13,8 @@ struct OnboardingView: View {
     
     @State private var scrollEffectValue: Double = 13
     @State private var activePageIndex: Int = 0
-    
+    @Binding var isPresented: Bool
+
     let itemWidth: CGFloat = 260
     let itemPadding: CGFloat = 20
     
@@ -50,7 +51,10 @@ struct OnboardingView: View {
                 
                 Spacer()
                 
-                OnboardingContinueButton(isReadyToContinue: .constant(onboardData.cards.count - 1 == activePageIndex) )
+                OnboardingContinueButton(
+                    isReadyToContinue: .constant(onboardData.cards.count - 1 == activePageIndex),
+                    isPresented: $isPresented
+                )
             }
         }
         .background(Color.black)
@@ -59,6 +63,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(isPresented: .constant(true))
     }
 }

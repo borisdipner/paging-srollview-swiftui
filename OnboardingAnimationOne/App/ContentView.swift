@@ -23,8 +23,8 @@ struct ContentView: View {
                         UnitsView(value: .constant("1"))
                     }
                 Button("Horizontal", action: { isShowingOnboardingSheet.toggle() })
-                    .sheet(isPresented: $isShowingOnboardingSheet) {
-                        OnboardingView()
+                    .fullScreenCover(isPresented: $isShowingOnboardingSheet) {
+                        OnboardingView(isPresented: $isShowingOnboardingSheet)
                     }
             }
             .foregroundColor(.black)

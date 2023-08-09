@@ -10,11 +10,12 @@ import SwiftUI
 struct OnboardingContinueButton: View {
     
     @Binding var isReadyToContinue: Bool
+    @Binding var isPresented: Bool
     @State private var animateGradient = false
-    
+
     var body: some View {
-        Button(action: { }) {
-            
+        Button(action: { isPresented = false }) {
+
             let buttonTitle = isReadyToContinue ? "Let's continue" : "Skip"
             let buttonImage = isReadyToContinue ? "location.fill" : "location"
             let gradientColors = isReadyToContinue ? [Color.purple, Color.nightBlue] : [Color.purple, Color.black]
