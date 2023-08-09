@@ -19,8 +19,8 @@ struct ContentView: View {
                 .padding(16)
             List {
                 Button("Vertical", action: { isShowingUnitsSheet.toggle() })
-                    .sheet(isPresented: $isShowingUnitsSheet) {
-                        UnitsView(value: .constant("1"))
+                    .fullScreenCover(isPresented: $isShowingUnitsSheet) {
+                        UnitsView(value: .constant("1"), isPresented: $isShowingUnitsSheet)
                     }
                 Button("Horizontal", action: { isShowingOnboardingSheet.toggle() })
                     .fullScreenCover(isPresented: $isShowingOnboardingSheet) {
