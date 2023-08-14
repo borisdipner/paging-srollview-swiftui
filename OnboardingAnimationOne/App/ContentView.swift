@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var isShowingUnitsSheet = false
     @State private var isShowingOnboardingSheet = false
-
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Paging Previews")

@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-
-
-
 struct AdaptivePagingScrollView: View {
     
     private let items: [AnyView]
@@ -17,18 +14,17 @@ struct AdaptivePagingScrollView: View {
     private let itemSpacing: CGFloat
     private let itemScrollableSide: CGFloat
     private let itemsAmount: Int
-    private let allContentLength: CGFloat
     private let visibleContentLength: CGFloat
-
+    
     private let initialOffset: CGFloat
     private let scrollDampingFactor: CGFloat = 0.66
     private let orientation: Orientation
-
+    
     @Binding var currentPageIndex: Int
     
     @State private var currentScrollOffset: CGFloat = 0
     @State private var gestureDragOffset: CGFloat = 0
-
+    
     private func countOffset(for pageIndex: Int) -> CGFloat {
         
         let activePageOffset = CGFloat(pageIndex) * (itemScrollableSide + itemPadding)
@@ -57,13 +53,13 @@ struct AdaptivePagingScrollView: View {
     private func countLogicalOffset(_ trueOffset: CGFloat) -> CGFloat {
         return (trueOffset-initialOffset) * -1.0
     }
-
+    
     private func changeFocus() {
         withAnimation {
             currentScrollOffset = countOffset(for: currentPageIndex)
         }
     }
-
+    
     init<A: View>(currentPageIndex: Binding<Int>,
                   itemsAmount: Int,
                   itemScrollableSide: CGFloat,
@@ -76,19 +72,18 @@ struct AdaptivePagingScrollView: View {
         self.items = [AnyView(views)]
         
         self._currentPageIndex = currentPageIndex
-
+        
         self.itemsAmount = itemsAmount
         self.itemSpacing = itemPadding
         self.itemScrollableSide = itemScrollableSide
         self.itemPadding = itemPadding
         self.visibleContentLength = visibleContentLength
         self.orientation = orientation
-        self.allContentLength = (itemScrollableSide+itemPadding)*CGFloat(itemsAmount)
         
         let itemRemain = (visibleContentLength-itemScrollableSide-2*itemPadding)/2
         self.initialOffset = itemRemain + itemPadding
     }
-
+    
     @ViewBuilder
     func contentView() -> some View {
         switch orientation {
@@ -106,7 +101,7 @@ struct AdaptivePagingScrollView: View {
             }
         }
     }
-
+    
     var body: some View {
         GeometryReader { _ in
             contentView()
@@ -115,7 +110,7 @@ struct AdaptivePagingScrollView: View {
             currentScrollOffset = countOffset(for: currentPageIndex)
         }
         .background(Color.black.opacity(0.00001)) // hack - this allows gesture recognizing even when background is transparent
-        .frameModifier(allContentLength, visibleContentLength, currentScrollOffset, orientation)
+        .frameModifier(visibleContentLength, currentScrollOffset, orientation)
         .simultaneousGesture(
             DragGesture(minimumDistance: 1, coordinateSpace: .local)
                 .onChanged { value in
@@ -136,18 +131,18 @@ struct AdaptivePagingScrollView: View {
                         cleanOffset = (value.predictedEndTranslation.height - gestureDragOffset)
                     }
                     let velocityDiff = cleanOffset * scrollDampingFactor
-
+                    
                     var newPageIndex = countPageIndex(for: currentScrollOffset + velocityDiff)
-
+                    
                     let currentItemOffset = CGFloat(currentPageIndex) * (itemScrollableSide + itemPadding)
-
+                    
                     if currentScrollOffset < -(currentItemOffset),
                        newPageIndex == currentPageIndex {
                         newPageIndex += 1
                     }
-
+                    
                     gestureDragOffset = 0
-
+                    
                     withAnimation(.interpolatingSpring(mass: 0.1,
                                                        stiffness: 20,
                                                        damping: 1.5,

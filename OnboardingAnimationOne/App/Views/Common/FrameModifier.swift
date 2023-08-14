@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FrameModifier: ViewModifier {
     let contentLength: CGFloat
-    let visibleContentLength: CGFloat
     let currentScrollOffset: CGFloat
     let orientation: Orientation
 
@@ -18,7 +17,6 @@ struct FrameModifier: ViewModifier {
           currentScrollOffset: CGFloat,
           orientation: Orientation) {
         self.contentLength = contentLength
-        self.visibleContentLength = visibleContentLength
         self.currentScrollOffset = currentScrollOffset
         self.orientation = orientation
     }
@@ -31,7 +29,7 @@ struct FrameModifier: ViewModifier {
                 .offset(x: self.currentScrollOffset, y: 0)
         case .vertical:
             return content
-                .frame(height: visibleContentLength)
+                .frame(height: contentLength)
                 .offset(x: 0, y: self.currentScrollOffset)
         }
     }
