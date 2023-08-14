@@ -9,8 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var isShowingUnitsSheet = false
+    @State private var isShowingOnboardingSheet = false
+    
     var body: some View {
-        OnboardingView()
+        VStack(alignment: .leading) {
+            Text("Paging Previews")
+                .font(.system(size: 36, weight: .semibold))
+                .padding(16)
+            List {
+                Button("Vertical", action: { isShowingUnitsSheet.toggle() })
+                    .fullScreenCover(isPresented: $isShowingUnitsSheet) {
+                        UnitsView(value: .constant("1"), isPresented: $isShowingUnitsSheet)
+                    }
+                Button("Horizontal", action: { isShowingOnboardingSheet.toggle() })
+                    .fullScreenCover(isPresented: $isShowingOnboardingSheet) {
+                        OnboardingView(isPresented: $isShowingOnboardingSheet)
+                    }
+            }
+            .foregroundColor(.black)
+        }
     }
 }
 
